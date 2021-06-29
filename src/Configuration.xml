@@ -28,7 +28,7 @@
 			</xr:ContainedObject>
 			<xr:ContainedObject>
 				<xr:ClassId>fb282519-d103-4dd3-bc12-cb271d631dfc</xr:ClassId>
-				<xr:ObjectId>68c9e8ac-78c1-4f6b-a679-77a7e3e0372d</xr:ObjectId>
+				<xr:ObjectId>198f3081-eaa4-4170-ab57-d96e41ec45ce</xr:ObjectId>
 			</xr:ContainedObject>
 		</InternalInfo>
 		<Properties>
@@ -232,7 +232,10 @@
 		<ChildObjects>
 			<Language>Русский</Language>
 			<CommonModule>КоннекторHTTP</CommonModule>
+			<CommonModule>КоннекторHTTPКлиент</CommonModule>
+			<CommonModule>КоннекторHTTPВызовСервера</CommonModule>
 			<DataProcessor>Тесты</DataProcessor>
+			<DataProcessor>Тесты_КоннекторHTTP_Клиент</DataProcessor>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>

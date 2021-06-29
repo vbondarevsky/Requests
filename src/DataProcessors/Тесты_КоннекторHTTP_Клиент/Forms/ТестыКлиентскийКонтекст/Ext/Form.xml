@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.10">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Страницы" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<Page name="СтраницаТесты" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тесты</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>КоличествоТестов</TitleDataPath>
+					<ExtendedTooltip name="СтраницаТестыРасширеннаяПодсказка" id="52"/>
+					<ChildItems>
+						<Table name="Тесты" id="55">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Header>false</Header>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Тесты</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТестыКонтекстноеМеню" id="56"/>
+							<AutoCommandBar name="ТестыКоманднаяПанель" id="57">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ТестыУстановитьФлажки" id="80">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УстановитьФлажки</CommandName>
+										<ExtendedTooltip name="ТестыУстановитьФлажкиРасширеннаяПодсказка" id="81"/>
+									</Button>
+									<Button name="ТестыСнятьФлажки" id="82">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СнятьФлажки</CommandName>
+										<ExtendedTooltip name="ТестыСнятьФлажкиРасширеннаяПодсказка" id="83"/>
+									</Button>
+									<Button name="КомандаВыполнитьТесты" id="1">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВыполнитьТесты</CommandName>
+										<ExtendedTooltip name="КомандаВыполнитьТестыРасширеннаяПодсказка" id="2"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТестыРасширеннаяПодсказка" id="58"/>
+							<SearchStringAddition name="ТестыСтрокаПоиска" id="59">
+								<AdditionSource>
+									<Item>Тесты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТестыСтрокаПоискаКонтекстноеМеню" id="60"/>
+								<ExtendedTooltip name="ТестыСтрокаПоискаРасширеннаяПодсказка" id="61"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТестыСостояниеПросмотра" id="62">
+								<AdditionSource>
+									<Item>Тесты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТестыСостояниеПросмотраКонтекстноеМеню" id="63"/>
+								<ExtendedTooltip name="ТестыСостояниеПросмотраРасширеннаяПодсказка" id="64"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТестыУправлениеПоиском" id="65">
+								<AdditionSource>
+									<Item>Тесты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТестыУправлениеПоискомКонтекстноеМеню" id="66"/>
+								<ExtendedTooltip name="ТестыУправлениеПоискомРасширеннаяПодсказка" id="67"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="ТестыИспользование" id="68">
+									<DataPath>Тесты.Использование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТестыИспользованиеКонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="ТестыИспользованиеРасширеннаяПодсказка" id="70"/>
+								</CheckBoxField>
+								<InputField name="ТестыРезультат" id="74">
+									<DataPath>Тесты.Результат</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>3</MaxWidth>
+									<ContextMenu name="ТестыРезультатКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="ТестыРезультатРасширеннаяПодсказка" id="76"/>
+								</InputField>
+								<InputField name="ТестыТест" id="71">
+									<DataPath>Тесты.Тест</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="ТестыТестКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="ТестыТестРасширеннаяПодсказка" id="73"/>
+								</InputField>
+								<InputField name="ТестыОшибка" id="77">
+									<DataPath>Тесты.Ошибка</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoCellHeight>true</AutoCellHeight>
+									<ContextMenu name="ТестыОшибкаКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="ТестыОшибкаРасширеннаяПодсказка" id="79"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНастройки" id="53">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаНастройкиРасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<UsualGroup name="Группа3" id="22">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки прокси-сервера</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="23"/>
+							<ChildItems>
+								<CheckBoxField name="ТестироватьСоединениеЧерезПрокси" id="3">
+									<DataPath>Объект.ТестироватьСоединениеЧерезПрокси</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТестироватьСоединениеЧерезПроксиКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="ТестироватьСоединениеЧерезПроксиРасширеннаяПодсказка" id="5"/>
+									<Events>
+										<Event name="OnChange">ТестироватьСоединениеЧерезПроксиПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаСерверПорт" id="18">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сервер и порт</v8:content>
+										</v8:item>
+									</Title>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСерверПортРасширеннаяПодсказка" id="19"/>
+									<ChildItems>
+										<InputField name="ПроксиСервер" id="12">
+											<DataPath>Объект.ПроксиСервер</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сервер</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПроксиСерверКонтекстноеМеню" id="13"/>
+											<ExtendedTooltip name="ПроксиСерверРасширеннаяПодсказка" id="14"/>
+										</InputField>
+										<InputField name="ПроксиПорт" id="15">
+											<DataPath>Объект.ПроксиПорт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Порт</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПроксиПортКонтекстноеМеню" id="16"/>
+											<ExtendedTooltip name="ПроксиПортРасширеннаяПодсказка" id="17"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа4" id="27">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки аутентификации на сайтах 1С</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="28"/>
+							<ChildItems>
+								<CheckBoxField name="ТестироватьПолучениеСпискаРелизовВСайта1С" id="24">
+									<DataPath>Объект.ТестироватьПолучениеСпискаРелизовВСайта1С</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТестироватьПолучениеСпискаРелизовВСайта1СКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="ТестироватьПолучениеСпискаРелизовВСайта1СРасширеннаяПодсказка" id="26"/>
+									<Events>
+										<Event name="OnChange">ТестироватьПолучениеСпискаРелизовВСайта1СПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаЛогинПароль" id="20">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Логин и пароль</v8:content>
+										</v8:item>
+									</Title>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЛогинПарольРасширеннаяПодсказка" id="21"/>
+									<ChildItems>
+										<InputField name="Логин" id="6">
+											<DataPath>Объект.Логин</DataPath>
+											<ContextMenu name="ЛогинКонтекстноеМеню" id="7"/>
+											<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="8"/>
+										</InputField>
+										<InputField name="Пароль" id="9">
+											<DataPath>Объект.Пароль</DataPath>
+											<ContextMenu name="ПарольКонтекстноеМеню" id="10"/>
+											<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="11"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа1" id="29">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки аутентификации AWS4-HMAC-SHA256</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="30"/>
+							<ChildItems>
+								<CheckBoxField name="ТестироватьАутентификациюAWS4_HMAC_SHA256" id="31">
+									<DataPath>Объект.ТестироватьАутентификациюAWS4_HMAC_SHA256</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТестироватьАутентификациюAWS4_HMAC_SHA256КонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ТестироватьАутентификациюAWS4_HMAC_SHA256РасширеннаяПодсказка" id="33"/>
+									<Events>
+										<Event name="OnChange">ТестироватьАутентификациюAWS4_HMAC_SHA256ПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="ИдентификаторКлючаДоступа" id="34">
+									<DataPath>Объект.ИдентификаторКлючаДоступа</DataPath>
+									<ContextMenu name="ИдентификаторКлючаДоступаКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ИдентификаторКлючаДоступаРасширеннаяПодсказка" id="36"/>
+								</InputField>
+								<InputField name="СекретныйКлюч" id="43">
+									<DataPath>Объект.СекретныйКлюч</DataPath>
+									<ContextMenu name="СекретныйКлючКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="СекретныйКлючРасширеннаяПодсказка" id="45"/>
+								</InputField>
+								<InputField name="Регион" id="40">
+									<DataPath>Объект.Регион</DataPath>
+									<ContextMenu name="РегионКонтекстноеМеню" id="41"/>
+									<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="42"/>
+								</InputField>
+								<InputField name="Очередь" id="46">
+									<DataPath>Объект.Очередь</DataPath>
+									<ContextMenu name="ОчередьКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ОчередьРасширеннаяПодсказка" id="48"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ТестироватьПовторы" id="89">
+							<DataPath>Объект.ТестироватьПовторы</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТестироватьПовторыКонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="ТестироватьПовторыРасширеннаяПодсказка" id="91"/>
+							<Events>
+								<Event name="OnChange">ТестироватьПовторыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Тесты_КоннекторHTTP_Клиент</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>1/0:5c2ecaf7-5963-404a-9e6e-39ebfb0e0dec</Field>
+				<Field>Объект.ИдентификаторКлючаДоступа</Field>
+				<Field>Объект.Логин</Field>
+				<Field>Объект.Очередь</Field>
+				<Field>Объект.Пароль</Field>
+				<Field>Объект.ПроксиПорт</Field>
+				<Field>Объект.ПроксиСервер</Field>
+				<Field>Объект.Регион</Field>
+				<Field>Объект.СекретныйКлюч</Field>
+				<Field>Объект.ТестироватьАутентификациюAWS4_HMAC_SHA256</Field>
+				<Field>Объект.ТестироватьПолучениеСпискаРелизовВСайта1С</Field>
+				<Field>Объект.ТестироватьСоединениеЧерезПрокси</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Тесты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тесты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Использование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Тест" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тест</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Результат" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>4</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ошибка" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КоличествоТестов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество тестов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТестыРезультат</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Тесты.Результат</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">FAIL</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:IndianRed</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" kind="AutoFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТестыРезультат</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Тесты.Результат</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">OK</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:DarkSeaGreen</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" kind="AutoFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьТесты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить тесты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить тесты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьТесты</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьФлажки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьФлажки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>
