@@ -902,6 +902,40 @@
 
 КонецФункции
 
+// Возвращает тип данных стандарта MIME для переданного расширения файла
+//
+// Параметры:
+//   Расширение - Строка - расширение файла  
+//
+// Пример:
+//   ПолучитьДляРасширенияФайлаТипMIME("pdf") - будет получен "application/pdf" 
+//
+// Возвращаемое значение:
+//   ТипMIME - Строка, Неопределено - тип данных стандарта MIME, 
+//		если не удалось определить ТипMIME, тогда возвращается Неопределено
+//
+Функция ПолучитьДляРасширенияФайлаТипMIME(ЗНАЧ Расширение) Экспорт 
+	
+	Перем ТипMIME;
+	
+	Если НЕ ЗначениеЗаполнено(Расширение) Тогда
+		Возврат ТипMIME; 
+	КонецЕсли;
+	
+	Если ТипЗнч(Расширение) <> Тип("Строка") Тогда
+		Возврат ТипMIME; 
+	КонецЕсли;       
+	
+	Расширение = СокрЛП(Расширение);
+	
+	РасширенияИТипыMIME = РасширенияФайловИТипыMIME();
+
+	ТипMIME = РасширенияИТипыMIME.Получить(Расширение);
+		
+	Возврат ТипMIME;
+	
+КонецФункции 
+
 #КонецОбласти
 
 #КонецОбласти
@@ -3028,5 +3062,396 @@
 	Возврат Новый Структура("Код, Ключ, Описание", Код, Ключ, Описание);
 
 КонецФункции
+
+Функция РасширенияФайловИТипыMIME()
+	
+	РасширенияИТипыMIME = Новый Соответствие();
+	РасширенияИТипыMIME.Вставить("123", "application/vnd.lotus-1-2-3");
+	РасширенияИТипыMIME.Вставить("3ds", "image/x-3ds");
+	РасширенияИТипыMIME.Вставить("669", "audio/x-mod");
+	РасширенияИТипыMIME.Вставить("a", "application/x-archive");
+	РасширенияИТипыMIME.Вставить("abw", "application/x-abiword");
+	РасширенияИТипыMIME.Вставить("ac3", "audio/ac3");
+	РасширенияИТипыMIME.Вставить("adb", "text/x-adasrc");
+	РасширенияИТипыMIME.Вставить("ads", "text/x-adasrc");
+	РасширенияИТипыMIME.Вставить("afm", "application/x-font-afm");
+	РасширенияИТипыMIME.Вставить("ag", "image/x-applix-graphics");
+	РасширенияИТипыMIME.Вставить("ai", "application/illustrator");
+	РасширенияИТипыMIME.Вставить("aif", "audio/x-aiff");
+	РасширенияИТипыMIME.Вставить("aifc", "audio/x-aiff");
+	РасширенияИТипыMIME.Вставить("aiff", "audio/x-aiff");
+	РасширенияИТипыMIME.Вставить("al", "application/x-perl");
+	РасширенияИТипыMIME.Вставить("arj", "application/x-arj");
+	РасширенияИТипыMIME.Вставить("as", "application/x-applix-spreadsheet");
+	РасширенияИТипыMIME.Вставить("asc", "text/plain");
+	РасширенияИТипыMIME.Вставить("asf", "video/x-ms-asf");
+	РасширенияИТипыMIME.Вставить("asp", "application/x-asp");
+	РасширенияИТипыMIME.Вставить("asx", "video/x-ms-asf");
+	РасширенияИТипыMIME.Вставить("au", "audio/basic");
+	РасширенияИТипыMIME.Вставить("avi", "video/x-msvideo");
+	РасширенияИТипыMIME.Вставить("aw", "application/x-applix-word");
+	РасширенияИТипыMIME.Вставить("bak", "application/x-trash");
+	РасширенияИТипыMIME.Вставить("bcpio", "application/x-bcpio");
+	РасширенияИТипыMIME.Вставить("bdf", "application/x-font-bdf");
+	РасширенияИТипыMIME.Вставить("bib", "text/x-bibtex");
+	РасширенияИТипыMIME.Вставить("bin", "application/octet-stream");
+	РасширенияИТипыMIME.Вставить("blend", "application/x-blender");
+	РасширенияИТипыMIME.Вставить("blender", "application/x-blender");
+	РасширенияИТипыMIME.Вставить("bmp", "image/bmp");
+	РасширенияИТипыMIME.Вставить("bz", "application/x-bzip");
+	РасширенияИТипыMIME.Вставить("bz2", "application/x-bzip");
+	РасширенияИТипыMIME.Вставить("c", "text/x-csrc");
+	РасширенияИТипыMIME.Вставить("c++", "text/x-c++src");
+	РасширенияИТипыMIME.Вставить("cc", "text/x-c++src");
+	РасширенияИТипыMIME.Вставить("cdf", "application/x-netcdf");
+	РасширенияИТипыMIME.Вставить("cdr", "application/vnd.corel-draw");
+	РасширенияИТипыMIME.Вставить("cer", "application/x-x509-ca-cert");
+	РасширенияИТипыMIME.Вставить("cert", "application/x-x509-ca-cert");
+	РасширенияИТипыMIME.Вставить("cgi", "application/x-cgi");
+	РасширенияИТипыMIME.Вставить("cgm", "image/cgm");
+	РасширенияИТипыMIME.Вставить("chrt", "application/x-kchart");
+	РасширенияИТипыMIME.Вставить("class", "application/x-java");
+	РасширенияИТипыMIME.Вставить("cls", "text/x-tex");
+	РасширенияИТипыMIME.Вставить("cpio", "application/x-cpio");
+	РасширенияИТипыMIME.Вставить("cpp", "text/x-c++src");
+	РасширенияИТипыMIME.Вставить("crt", "application/x-x509-ca-cert");
+	РасширенияИТипыMIME.Вставить("cs", "text/x-csharp");
+	РасширенияИТипыMIME.Вставить("csh", "application/x-shellscript");
+	РасширенияИТипыMIME.Вставить("css", "text/css");
+	РасширенияИТипыMIME.Вставить("cssl", "text/css");
+	РасширенияИТипыMIME.Вставить("csv", "text/x-comma-separated-values");
+	РасширенияИТипыMIME.Вставить("cur", "image/x-win-bitmap");
+	РасширенияИТипыMIME.Вставить("cxx", "text/x-c++src");
+	РасширенияИТипыMIME.Вставить("dat", "video/mpeg");
+	РасширенияИТипыMIME.Вставить("dbf", "application/x-dbase");
+	РасширенияИТипыMIME.Вставить("dc", "application/x-dc-rom");
+	РасширенияИТипыMIME.Вставить("dcl", "text/x-dcl");
+	РасширенияИТипыMIME.Вставить("dcm", "image/x-dcm");
+	РасширенияИТипыMIME.Вставить("deb", "application/x-deb");
+	РасширенияИТипыMIME.Вставить("der", "application/x-x509-ca-cert");
+	РасширенияИТипыMIME.Вставить("desktop", "application/x-desktop");
+	РасширенияИТипыMIME.Вставить("dia", "application/x-dia-diagram");
+	РасширенияИТипыMIME.Вставить("diff", "text/x-patch");
+	РасширенияИТипыMIME.Вставить("djv", "image/vnd.djvu");
+	РасширенияИТипыMIME.Вставить("djvu", "image/vnd.djvu");
+	РасширенияИТипыMIME.Вставить("doc", "application/vnd.ms-word");
+	РасширенияИТипыMIME.Вставить("docx", "application/vnd.ms-word");
+	РасширенияИТипыMIME.Вставить("dsl", "text/x-dsl");
+	РасширенияИТипыMIME.Вставить("dtd", "text/x-dtd");
+	РасширенияИТипыMIME.Вставить("dvi", "application/x-dvi");
+	РасширенияИТипыMIME.Вставить("dwg", "image/vnd.dwg");
+	РасширенияИТипыMIME.Вставить("dxf", "image/vnd.dxf");
+	РасширенияИТипыMIME.Вставить("egon", "application/x-egon");
+	РасширенияИТипыMIME.Вставить("el", "text/x-emacs-lisp");
+	РасширенияИТипыMIME.Вставить("eps", "image/x-eps");
+	РасширенияИТипыMIME.Вставить("epsf", "image/x-eps");
+	РасширенияИТипыMIME.Вставить("epsi", "image/x-eps");
+	РасширенияИТипыMIME.Вставить("etheme", "application/x-e-theme");
+	РасширенияИТипыMIME.Вставить("etx", "text/x-setext");
+	РасширенияИТипыMIME.Вставить("exe", "application/x-ms-dos-executable");
+	РасширенияИТипыMIME.Вставить("ez", "application/andrew-inset");
+	РасширенияИТипыMIME.Вставить("f", "text/x-fortran");
+	РасширенияИТипыMIME.Вставить("fig", "image/x-xfig");
+	РасширенияИТипыMIME.Вставить("fits", "image/x-fits");
+	РасширенияИТипыMIME.Вставить("flac", "audio/x-flac");
+	РасширенияИТипыMIME.Вставить("flc", "video/x-flic");
+	РасширенияИТипыMIME.Вставить("fli", "video/x-flic");
+	РасширенияИТипыMIME.Вставить("flw", "application/x-kivio");
+	РасширенияИТипыMIME.Вставить("fo", "text/x-xslfo");
+	РасширенияИТипыMIME.Вставить("g3", "image/fax-g3");
+	РасширенияИТипыMIME.Вставить("gb", "application/x-gameboy-rom");
+	РасширенияИТипыMIME.Вставить("gcrd", "text/x-vcard");
+	РасширенияИТипыMIME.Вставить("gen", "application/x-genesis-rom");
+	РасширенияИТипыMIME.Вставить("gg", "application/x-sms-rom");
+	РасширенияИТипыMIME.Вставить("gif", "image/gif");
+	РасширенияИТипыMIME.Вставить("glade", "application/x-glade");
+	РасширенияИТипыMIME.Вставить("gmo", "application/x-gettext-translation");
+	РасширенияИТипыMIME.Вставить("gnc", "application/x-gnucash");
+	РасширенияИТипыMIME.Вставить("gnucash", "application/x-gnucash");
+	РасширенияИТипыMIME.Вставить("gnumeric", "application/x-gnumeric");
+	РасширенияИТипыMIME.Вставить("gra", "application/x-graphite");
+	РасширенияИТипыMIME.Вставить("gsf", "application/x-font-type1");
+	РасширенияИТипыMIME.Вставить("gtar", "application/x-gtar");
+	РасширенияИТипыMIME.Вставить("gz", "application/x-gzip");
+	РасширенияИТипыMIME.Вставить("h", "text/x-chdr");
+	РасширенияИТипыMIME.Вставить("h++", "text/x-chdr");
+	РасширенияИТипыMIME.Вставить("hdf", "application/x-hdf");
+	РасширенияИТипыMIME.Вставить("hh", "text/x-c++hdr");
+	РасширенияИТипыMIME.Вставить("hp", "text/x-chdr");
+	РасширенияИТипыMIME.Вставить("hpgl", "application/vnd.hp-hpgl");
+	РасширенияИТипыMIME.Вставить("hs", "text/x-haskell");
+	РасширенияИТипыMIME.Вставить("htm", "text/html");
+	РасширенияИТипыMIME.Вставить("html", "text/html");
+	РасширенияИТипыMIME.Вставить("icb", "image/x-icb");
+	РасширенияИТипыMIME.Вставить("ico", "image/x-ico");
+	РасширенияИТипыMIME.Вставить("ics", "text/calendar");
+	РасширенияИТипыMIME.Вставить("idl", "text/x-idl");
+	РасширенияИТипыMIME.Вставить("ief", "image/ief");
+	РасширенияИТипыMIME.Вставить("iff", "image/x-iff");
+	РасширенияИТипыMIME.Вставить("ilbm", "image/x-ilbm");
+	РасширенияИТипыMIME.Вставить("iso", "application/x-cd-image");
+	РасширенияИТипыMIME.Вставить("it", "audio/x-it");
+	РасширенияИТипыMIME.Вставить("jar", "application/x-jar");
+	РасширенияИТипыMIME.Вставить("java", "text/x-java");
+	РасширенияИТипыMIME.Вставить("jng", "image/x-jng");
+	РасширенияИТипыMIME.Вставить("jp2", "image/jpeg2000");
+	РасширенияИТипыMIME.Вставить("jpe", "image/jpeg");
+	РасширенияИТипыMIME.Вставить("jpeg", "image/jpeg");
+	РасширенияИТипыMIME.Вставить("jpg", "image/jpeg");
+	РасширенияИТипыMIME.Вставить("jpr", "application/x-jbuilder-project");
+	РасширенияИТипыMIME.Вставить("jpx", "application/x-jbuilder-project");
+	РасширенияИТипыMIME.Вставить("js", "application/x-javascript");
+	РасширенияИТипыMIME.Вставить("karbon", "application/x-karbon");
+	РасширенияИТипыMIME.Вставить("kdelnk", "application/x-desktop");
+	РасширенияИТипыMIME.Вставить("kfo", "application/x-kformula");
+	РасширенияИТипыMIME.Вставить("kil", "application/x-killustrator");
+	РасширенияИТипыMIME.Вставить("kon", "application/x-kontour");
+	РасширенияИТипыMIME.Вставить("kpm", "application/x-kpovmodeler");
+	РасширенияИТипыMIME.Вставить("kpr", "application/x-kpresenter");
+	РасширенияИТипыMIME.Вставить("kpt", "application/x-kpresenter");
+	РасширенияИТипыMIME.Вставить("kra", "application/x-krita");
+	РасширенияИТипыMIME.Вставить("ksp", "application/x-kspread");
+	РасширенияИТипыMIME.Вставить("kud", "application/x-kugar");
+	РасширенияИТипыMIME.Вставить("kwd", "application/x-kword");
+	РасширенияИТипыMIME.Вставить("kwt", "application/x-kword");
+	РасширенияИТипыMIME.Вставить("la", "application/x-shared-library-la");
+	РасширенияИТипыMIME.Вставить("lha", "application/x-lha");
+	РасширенияИТипыMIME.Вставить("lhs", "text/x-literate-haskell");
+	РасширенияИТипыMIME.Вставить("lhz", "application/x-lhz");
+	РасширенияИТипыMIME.Вставить("log", "text/x-log");
+	РасширенияИТипыMIME.Вставить("ltx", "text/x-tex");
+	РасширенияИТипыMIME.Вставить("lwo", "image/x-lwo");
+	РасширенияИТипыMIME.Вставить("lwob", "image/x-lwo");
+	РасширенияИТипыMIME.Вставить("lws", "image/x-lws");
+	РасширенияИТипыMIME.Вставить("lyx", "application/x-lyx");
+	РасширенияИТипыMIME.Вставить("lzh", "application/x-lha");
+	РасширенияИТипыMIME.Вставить("lzo", "application/x-lzop");
+	РасширенияИТипыMIME.Вставить("m", "text/x-objcsrc");
+	РасширенияИТипыMIME.Вставить("m15", "audio/x-mod");
+	РасширенияИТипыMIME.Вставить("m3u", "audio/x-mpegurl");
+	РасширенияИТипыMIME.Вставить("man", "application/x-troff-man");
+	РасширенияИТипыMIME.Вставить("md", "application/x-genesis-rom");
+	РасширенияИТипыMIME.Вставить("me", "text/x-troff-me");
+	РасширенияИТипыMIME.Вставить("mgp", "application/x-magicpoint");
+	РасширенияИТипыMIME.Вставить("mid", "audio/midi");
+	РасширенияИТипыMIME.Вставить("midi", "audio/midi");
+	РасширенияИТипыMIME.Вставить("mif", "application/x-mif");
+	РасширенияИТипыMIME.Вставить("mkv", "application/x-matroska");
+	РасширенияИТипыMIME.Вставить("mm", "text/x-troff-mm");
+	РасширенияИТипыMIME.Вставить("mml", "text/mathml");
+	РасширенияИТипыMIME.Вставить("mng", "video/x-mng");
+	РасширенияИТипыMIME.Вставить("moc", "text/x-moc");
+	РасширенияИТипыMIME.Вставить("mod", "audio/x-mod");
+	РасширенияИТипыMIME.Вставить("moov", "video/quicktime");
+	РасширенияИТипыMIME.Вставить("mov", "video/quicktime");
+	РасширенияИТипыMIME.Вставить("movie", "video/x-sgi-movie");
+	РасширенияИТипыMIME.Вставить("mp2", "video/mpeg");
+	РасширенияИТипыMIME.Вставить("mp3", "audio/x-mp3");
+	РасширенияИТипыMIME.Вставить("mpe", "video/mpeg");
+	РасширенияИТипыMIME.Вставить("mpeg", "video/mpeg");
+	РасширенияИТипыMIME.Вставить("mpg", "video/mpeg");
+	РасширенияИТипыMIME.Вставить("ms", "text/x-troff-ms");
+	РасширенияИТипыMIME.Вставить("msod", "image/x-msod");
+	РасширенияИТипыMIME.Вставить("msx", "application/x-msx-rom");
+	РасширенияИТипыMIME.Вставить("mtm", "audio/x-mod");
+	РасширенияИТипыMIME.Вставить("n64", "application/x-n64-rom");
+	РасширенияИТипыMIME.Вставить("nc", "application/x-netcdf");
+	РасширенияИТипыMIME.Вставить("nes", "application/x-nes-rom");
+	РасширенияИТипыMIME.Вставить("nsv", "video/x-nsv");
+	РасширенияИТипыMIME.Вставить("o", "application/x-object");
+	РасширенияИТипыMIME.Вставить("obj", "application/x-tgif");
+	РасширенияИТипыMIME.Вставить("oda", "application/oda");
+	РасширенияИТипыMIME.Вставить("ogg", "application/ogg");
+	РасширенияИТипыMIME.Вставить("old", "application/x-trash");
+	РасширенияИТипыMIME.Вставить("oleo", "application/x-oleo");
+	РасширенияИТипыMIME.Вставить("p", "text/x-pascal");
+	РасширенияИТипыMIME.Вставить("p12", "application/x-pkcs12");
+	РасширенияИТипыMIME.Вставить("p7s", "application/pkcs7-signature");
+	РасширенияИТипыMIME.Вставить("pas", "text/x-pascal");
+	РасширенияИТипыMIME.Вставить("patch", "text/x-patch");
+	РасширенияИТипыMIME.Вставить("pbm", "image/x-portable-bitmap");
+	РасширенияИТипыMIME.Вставить("pcd", "image/x-photo-cd");
+	РасширенияИТипыMIME.Вставить("pcf", "application/x-font-pcf");
+	РасширенияИТипыMIME.Вставить("pcl", "application/vnd.hp-pcl");
+	РасширенияИТипыMIME.Вставить("pdb", "application/vnd.palm");
+	РасширенияИТипыMIME.Вставить("pdf", "application/pdf");
+	РасширенияИТипыMIME.Вставить("pem", "application/x-x509-ca-cert");
+	РасширенияИТипыMIME.Вставить("perl", "application/x-perl");
+	РасширенияИТипыMIME.Вставить("pfa", "application/x-font-type1");
+	РасширенияИТипыMIME.Вставить("pfb", "application/x-font-type1");
+	РасширенияИТипыMIME.Вставить("pfx", "application/x-pkcs12");
+	РасширенияИТипыMIME.Вставить("pgm", "image/x-portable-graymap");
+	РасширенияИТипыMIME.Вставить("pgn", "application/x-chess-pgn");
+	РасширенияИТипыMIME.Вставить("pgp", "application/pgp");
+	РасширенияИТипыMIME.Вставить("php", "application/x-php");
+	РасширенияИТипыMIME.Вставить("php3", "application/x-php");
+	РасширенияИТипыMIME.Вставить("php4", "application/x-php");
+	РасширенияИТипыMIME.Вставить("pict", "image/x-pict");
+	РасширенияИТипыMIME.Вставить("pict1", "image/x-pict");
+	РасширенияИТипыMIME.Вставить("pict2", "image/x-pict");
+	РасширенияИТипыMIME.Вставить("pl", "application/x-perl");
+	РасширенияИТипыMIME.Вставить("pls", "audio/x-scpls");
+	РасширенияИТипыMIME.Вставить("pm", "application/x-perl");
+	РасширенияИТипыMIME.Вставить("png", "image/png");
+	РасширенияИТипыMIME.Вставить("pnm", "image/x-portable-anymap");
+	РасширенияИТипыMIME.Вставить("po", "text/x-gettext-translation");
+	РасширенияИТипыMIME.Вставить("pot", "text/x-gettext-translation-template");
+	РасширенияИТипыMIME.Вставить("ppm", "image/x-portable-pixmap");
+	РасширенияИТипыMIME.Вставить("pps", "application/vnd.ms-powerpoint");
+	РасширенияИТипыMIME.Вставить("ppt", "application/vnd.ms-powerpoint");
+	РасширенияИТипыMIME.Вставить("ppz", "application/vnd.ms-powerpoint");
+	РасширенияИТипыMIME.Вставить("ps", "application/postscript");
+	РасширенияИТипыMIME.Вставить("psd", "image/x-psd");
+	РасширенияИТипыMIME.Вставить("psf", "application/x-font-linux-psf");
+	РасширенияИТипыMIME.Вставить("psid", "audio/prs.sid");
+	РасширенияИТипыMIME.Вставить("pw", "application/x-pw");
+	РасширенияИТипыMIME.Вставить("py", "application/x-python");
+	РасширенияИТипыMIME.Вставить("pyc", "application/x-python-bytecode");
+	РасширенияИТипыMIME.Вставить("pyo", "application/x-python-bytecode");
+	РасширенияИТипыMIME.Вставить("qif", "application/x-qw");
+	РасширенияИТипыMIME.Вставить("qt", "video/quicktime");
+	РасширенияИТипыMIME.Вставить("qtvr", "video/quicktime");
+	РасширенияИТипыMIME.Вставить("ra", "audio/x-pn-realaudio");
+	РасширенияИТипыMIME.Вставить("ram", "audio/x-pn-realaudio");
+	РасширенияИТипыMIME.Вставить("rar", "application/x-rar");
+	РасширенияИТипыMIME.Вставить("ras", "image/x-cmu-raster");
+	РасширенияИТипыMIME.Вставить("rdf", "text/rdf");
+	РасширенияИТипыMIME.Вставить("rej", "application/x-reject");
+	РасширенияИТипыMIME.Вставить("rgb", "image/x-rgb");
+	РасширенияИТипыMIME.Вставить("rle", "image/rle");
+	РасширенияИТипыMIME.Вставить("rm", "audio/x-pn-realaudio");
+	РасширенияИТипыMIME.Вставить("roff", "application/x-troff");
+	РасширенияИТипыMIME.Вставить("rpm", "application/x-rpm");
+	РасширенияИТипыMIME.Вставить("rss", "text/rss");
+	РасширенияИТипыMIME.Вставить("rtf", "application/rtf");
+	РасширенияИТипыMIME.Вставить("rtx", "text/richtext");
+	РасширенияИТипыMIME.Вставить("s3m", "audio/x-s3m");
+	РасширенияИТипыMIME.Вставить("sam", "application/x-amipro");
+	РасширенияИТипыMIME.Вставить("scm", "text/x-scheme");
+	РасширенияИТипыMIME.Вставить("sda", "application/vnd.stardivision.draw");
+	РасширенияИТипыMIME.Вставить("sdc", "application/vnd.stardivision.calc");
+	РасширенияИТипыMIME.Вставить("sdd", "application/vnd.stardivision.impress");
+	РасширенияИТипыMIME.Вставить("sdp", "application/vnd.stardivision.impress");
+	РасширенияИТипыMIME.Вставить("sds", "application/vnd.stardivision.chart");
+	РасширенияИТипыMIME.Вставить("sdw", "application/vnd.stardivision.writer");
+	РасширенияИТипыMIME.Вставить("sgi", "image/x-sgi");
+	РасширенияИТипыMIME.Вставить("sgl", "application/vnd.stardivision.writer");
+	РасширенияИТипыMIME.Вставить("sgm", "text/sgml");
+	РасширенияИТипыMIME.Вставить("sgml", "text/sgml");
+	РасширенияИТипыMIME.Вставить("sh", "application/x-shellscript");
+	РасширенияИТипыMIME.Вставить("shar", "application/x-shar");
+	РасширенияИТипыMIME.Вставить("siag", "application/x-siag");
+	РасширенияИТипыMIME.Вставить("sid", "audio/prs.sid");
+	РасширенияИТипыMIME.Вставить("sik", "application/x-trash");
+	РасширенияИТипыMIME.Вставить("slk", "text/spreadsheet");
+	РасширенияИТипыMIME.Вставить("smd", "application/vnd.stardivision.mail");
+	РасширенияИТипыMIME.Вставить("smf", "application/vnd.stardivision.math");
+	РасширенияИТипыMIME.Вставить("smi", "application/smil");
+	РасширенияИТипыMIME.Вставить("smil", "application/smil");
+	РасширенияИТипыMIME.Вставить("sml", "application/smil");
+	РасширенияИТипыMIME.Вставить("sms", "application/x-sms-rom");
+	РасширенияИТипыMIME.Вставить("snd", "audio/basic");
+	РасширенияИТипыMIME.Вставить("so", "application/x-sharedlib");
+	РасширенияИТипыMIME.Вставить("spd", "application/x-font-speedo");
+	РасширенияИТипыMIME.Вставить("sql", "text/x-sql");
+	РасширенияИТипыMIME.Вставить("src", "application/x-wais-source");
+	РасширенияИТипыMIME.Вставить("stc", "application/vnd.sun.xml.calc.template");
+	РасширенияИТипыMIME.Вставить("std", "application/vnd.sun.xml.draw.template");
+	РасширенияИТипыMIME.Вставить("sti", "application/vnd.sun.xml.impress.template");
+	РасширенияИТипыMIME.Вставить("stm", "audio/x-stm");
+	РасширенияИТипыMIME.Вставить("stw", "application/vnd.sun.xml.writer.template");
+	РасширенияИТипыMIME.Вставить("sty", "text/x-tex");
+	РасширенияИТипыMIME.Вставить("sun", "image/x-sun-raster");
+	РасширенияИТипыMIME.Вставить("sv4cpio", "application/x-sv4cpio");
+	РасширенияИТипыMIME.Вставить("sv4crc", "application/x-sv4crc");
+	РасширенияИТипыMIME.Вставить("svg", "image/svg+xml");
+	РасширенияИТипыMIME.Вставить("swf", "application/x-shockwave-flash");
+	РасширенияИТипыMIME.Вставить("sxc", "application/vnd.sun.xml.calc");
+	РасширенияИТипыMIME.Вставить("sxd", "application/vnd.sun.xml.draw");
+	РасширенияИТипыMIME.Вставить("sxg", "application/vnd.sun.xml.writer.global");
+	РасширенияИТипыMIME.Вставить("sxi", "application/vnd.sun.xml.impress");
+	РасширенияИТипыMIME.Вставить("sxm", "application/vnd.sun.xml.math");
+	РасширенияИТипыMIME.Вставить("sxw", "application/vnd.sun.xml.writer");
+	РасширенияИТипыMIME.Вставить("sylk", "text/spreadsheet");
+	РасширенияИТипыMIME.Вставить("t", "application/x-troff");
+	РасширенияИТипыMIME.Вставить("tar", "application/x-tar");
+	РасширенияИТипыMIME.Вставить("tcl", "text/x-tcl");
+	РасширенияИТипыMIME.Вставить("tcpalette", "application/x-terminal-color-palette");
+	РасширенияИТипыMIME.Вставить("tex", "text/x-tex");
+	РасширенияИТипыMIME.Вставить("texi", "text/x-texinfo");
+	РасширенияИТипыMIME.Вставить("texinfo", "text/x-texinfo");
+	РасширенияИТипыMIME.Вставить("tga", "image/x-tga");
+	РасширенияИТипыMIME.Вставить("tgz", "application/x-compressed-tar");
+	РасширенияИТипыMIME.Вставить("theme", "application/x-theme");
+	РасширенияИТипыMIME.Вставить("tif", "image/tiff");
+	РасширенияИТипыMIME.Вставить("tiff", "image/tiff");
+	РасширенияИТипыMIME.Вставить("tk", "text/x-tcl");
+	РасширенияИТипыMIME.Вставить("torrent", "application/x-bittorrent");
+	РасширенияИТипыMIME.Вставить("tr", "application/x-troff");
+	РасширенияИТипыMIME.Вставить("ts", "application/x-linguist");
+	РасширенияИТипыMIME.Вставить("tsv", "text/tab-separated-values");
+	РасширенияИТипыMIME.Вставить("ttf", "application/x-font-ttf");
+	РасширенияИТипыMIME.Вставить("txt", "text/plain");
+	РасширенияИТипыMIME.Вставить("tzo", "application/x-tzo");
+	РасширенияИТипыMIME.Вставить("ui", "application/x-designer");
+	РасширенияИТипыMIME.Вставить("uil", "text/x-uil");
+	РасширенияИТипыMIME.Вставить("ult", "audio/x-mod");
+	РасширенияИТипыMIME.Вставить("uni", "audio/x-mod");
+	РасширенияИТипыMIME.Вставить("uri", "text/x-uri");
+	РасширенияИТипыMIME.Вставить("url", "text/x-uri");
+	РасширенияИТипыMIME.Вставить("ustar", "application/x-ustar");
+	РасширенияИТипыMIME.Вставить("vcf", "text/x-vcalendar");
+	РасширенияИТипыMIME.Вставить("vcs", "text/x-vcalendar");
+	РасширенияИТипыMIME.Вставить("vct", "text/x-vcard");
+	РасширенияИТипыMIME.Вставить("vob", "video/mpeg");
+	РасширенияИТипыMIME.Вставить("voc", "audio/x-voc");
+	РасширенияИТипыMIME.Вставить("vor", "application/vnd.stardivision.writer");
+	РасширенияИТипыMIME.Вставить("vpp", "application/x-extension-vpp");
+	РасширенияИТипыMIME.Вставить("wav", "audio/x-wav");
+	РасширенияИТипыMIME.Вставить("wb1", "application/x-quattropro");
+	РасширенияИТипыMIME.Вставить("wb2", "application/x-quattropro");
+	РасширенияИТипыMIME.Вставить("wb3", "application/x-quattropro");
+	РасширенияИТипыMIME.Вставить("wk1", "application/vnd.lotus-1-2-3");
+	РасширенияИТипыMIME.Вставить("wk3", "application/vnd.lotus-1-2-3");
+	РасширенияИТипыMIME.Вставить("wk4", "application/vnd.lotus-1-2-3");
+	РасширенияИТипыMIME.Вставить("wks", "application/vnd.lotus-1-2-3");
+	РасширенияИТипыMIME.Вставить("wmf", "image/x-wmf");
+	РасширенияИТипыMIME.Вставить("wml", "text/vnd.wap.wml");
+	РасширенияИТипыMIME.Вставить("wmv", "video/x-ms-wmv");
+	РасширенияИТипыMIME.Вставить("wpd", "application/vnd.wordperfect");
+	РасширенияИТипыMIME.Вставить("wpg", "application/x-wpg");
+	РасширенияИТипыMIME.Вставить("wri", "application/x-mswrite");
+	РасширенияИТипыMIME.Вставить("wrl", "model/vrml");
+	РасширенияИТипыMIME.Вставить("xac", "application/x-gnucash");
+	РасширенияИТипыMIME.Вставить("xbel", "application/x-xbel");
+	РасширенияИТипыMIME.Вставить("xbm", "image/x-xbitmap");
+	РасширенияИТипыMIME.Вставить("xcf", "image/x-xcf");
+	РасширенияИТипыMIME.Вставить("xhtml", "application/xhtml+xml");
+	РасширенияИТипыMIME.Вставить("xi", "audio/x-xi");
+	РасширенияИТипыMIME.Вставить("xla", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xlc", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xld", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xll", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xlm", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xls", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xlsx", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xlt", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xlw", "application/vnd.ms-excel");
+	РасширенияИТипыMIME.Вставить("xm", "audio/x-xm");
+	РасширенияИТипыMIME.Вставить("xmi", "text/x-xmi");
+	РасширенияИТипыMIME.Вставить("xml", "text/xml");
+	РасширенияИТипыMIME.Вставить("xpm", "image/x-xpixmap");
+	РасширенияИТипыMIME.Вставить("xsl", "text/x-xslt");
+	РасширенияИТипыMIME.Вставить("xslfo", "text/x-xslfo");
+	РасширенияИТипыMIME.Вставить("xslt", "text/x-xslt");
+	РасширенияИТипыMIME.Вставить("xwd", "image/x-xwindowdump");
+	РасширенияИТипыMIME.Вставить("z", "application/x-compress");
+	РасширенияИТипыMIME.Вставить("zabw", "application/x-abiword");
+	РасширенияИТипыMIME.Вставить("zip", "application/zip");
+	РасширенияИТипыMIME.Вставить("zoo", "application/x-zoo");
+	
+	Возврат РасширенияИТипыMIME;
+	
+КонецФункции 
 
 #КонецОбласти
